@@ -10,12 +10,12 @@ public interface JobApplicationI {
 
     List<JobApplication> retrieveAllAppliaction();
 
-    JobApplication addAppliaction(JobApplication j);
+    JobApplication addAppliaction(JobApplication ja ,String username,Long idJob);
 
     @Transactional
     void deleteJAppliaction(Long j);
 
-    JobApplication updateAppliaction(Job j);
+    JobApplication updateAppliaction(JobApplication j);
 
     JobApplication  retrieveAppliaction(Long id);
 

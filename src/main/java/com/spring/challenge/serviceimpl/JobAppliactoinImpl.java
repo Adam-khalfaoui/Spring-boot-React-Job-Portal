@@ -1,7 +1,10 @@
 package com.spring.challenge.serviceimpl;
 
+import com.spring.challenge.entities.Company;
 import com.spring.challenge.entities.Job;
+import com.spring.challenge.entities.client;
 import com.spring.challenge.entities.JobApplication;
+import com.spring.challenge.repository.ClientRepository;
 import com.spring.challenge.repository.JobApplicationRepository;
 import com.spring.challenge.repository.JobRepository;
 import com.spring.challenge.service.JobApplicationI;
@@ -16,6 +19,9 @@ public class JobAppliactoinImpl implements JobApplicationI {
     private JobRepository jobRepository;
     @Autowired
     private JobApplicationRepository JobApplicationRepository;
+
+    @Autowired
+    private ClientRepository clientRepository;
     @Override
     public List<JobApplication> retrieveAllAppliaction() {
         List<JobApplication> JobApplications = (List<JobApplication>) JobApplicationRepository.findAll();
@@ -23,9 +29,14 @@ public class JobAppliactoinImpl implements JobApplicationI {
     }
 
     @Override
-    public JobApplication addAppliaction(JobApplication j) {
-        JobApplicationRepository.save(j);
-        return j;
+    public JobApplication addAppliaction(JobApplication ja ,String username,Long idJob) {
+        client client = clientRepository.findByUsername(username).orElse(null);
+        System.out.println(username);
+        Job job = jobRepository.getById(idJob);
+        ja.setJob(job);
+        ja.setClient(client);
+        JobApplicationRepository.save(ja);
+        return ja;
 
     }
 
@@ -40,8 +51,12 @@ public class JobAppliactoinImpl implements JobApplicationI {
         return JobApplicationRepository.save(j);
     }
 
+
     @Override
     public JobApplication retrieveAppliaction(Long id) {
         return null;
     }
+
+
+
 }

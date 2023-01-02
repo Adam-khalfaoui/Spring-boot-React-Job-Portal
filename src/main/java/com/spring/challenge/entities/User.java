@@ -7,10 +7,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
+
 @Data
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-
+@Entity
 public class User {
   @Id
   @GeneratedValue

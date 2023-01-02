@@ -9,7 +9,7 @@ public interface JobI {
 
     List<Job> retrieveAllJob();
 
-    Job addJob(Job j);
+    Job addJob(Job j, String username);
 
     @Transactional
     void deleteJob(Long j);

@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
@@ -25,12 +27,16 @@ public class JobApplication  {
     @Id
     @Column(insertable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idj;
+    private Long id;
+
+    private String name;
+    private String lastname;
+
+    private String cv;
 
 
 
-
-
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(targetEntity = Job.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH })
     @JoinColumn(name = "job_id")
@@ -38,14 +44,11 @@ public class JobApplication  {
 
     @ManyToOne(targetEntity = client.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH })
-    @JoinColumn(name="id")
+    @JoinColumn(name="idc")
     private client client;
 
+    @JsonIgnore
     private LocalDateTime appliedDate = LocalDateTime.now();
 
-    private Long name;
-    private Long lastname;
-
-    private String cv;
 
 }
