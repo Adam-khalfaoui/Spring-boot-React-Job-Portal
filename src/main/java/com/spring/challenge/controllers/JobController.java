@@ -54,10 +54,16 @@ public class JobController {
     }
 
     @PostMapping(value="/add" )
-    public ResponseEntity<Job> addJob(@RequestBody Job j, Principal principal) {
+    public ResponseEntity<Object> addJob(@RequestBody Job j, Principal principal) throws NoSuchFieldException {
         String username = principal.getName();
 
         Job job = jobImpml.addJob(j,username);
+
+        if(job==null){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }else
+
+
         return new ResponseEntity<>(job, HttpStatus.OK);
     }
 

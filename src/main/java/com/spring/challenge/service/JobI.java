@@ -9,7 +9,7 @@ public interface JobI {
 
     List<Job> retrieveAllJob();
 
-    Job addJob(Job j, String username);
+    Job addJob(Job j, String username) throws NoSuchFieldException;
 
     @Transactional
     void deleteJob(Long j);

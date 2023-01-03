@@ -35,6 +35,8 @@ public class JobAppliactoinImpl implements JobApplicationI {
         Job job = jobRepository.getById(idJob);
         ja.setJob(job);
         ja.setClient(client);
+
+
         JobApplicationRepository.save(ja);
         return ja;
 
@@ -54,7 +56,8 @@ public class JobAppliactoinImpl implements JobApplicationI {
 
     @Override
     public JobApplication retrieveAppliaction(Long id) {
-        return null;
+        JobApplication application = JobApplicationRepository.findAllById(id);
+        return application;
     }
 
 

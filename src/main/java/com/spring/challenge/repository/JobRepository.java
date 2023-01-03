@@ -12,4 +12,5 @@ public interface JobRepository extends JpaRepository<Job, Long> {
     public void deleteById(Long id);
 
 
+  public  Job findAllById(Long id);
 }

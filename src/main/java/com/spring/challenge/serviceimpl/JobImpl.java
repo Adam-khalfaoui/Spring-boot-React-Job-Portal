@@ -1,5 +1,7 @@
 package com.spring.challenge.serviceimpl;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.spring.challenge.entities.JobApplication;
 import com.spring.challenge.entities.User;
 import com.spring.challenge.repository.CompanyRepository;
 import com.spring.challenge.entities.Company;
@@ -7,11 +9,22 @@ import com.spring.challenge.entities.Job;
 import com.spring.challenge.repository.JobRepository;
 import com.spring.challenge.repository.UserRepository;
 import com.spring.challenge.service.JobI;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.ServletException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 
@@ -33,15 +46,26 @@ public class JobImpl implements JobI {
     }
 
     @Override
-    public Job addJob(Job j, String username) {
-
-
+    public Job addJob(Job j, String username) throws NoSuchFieldException {
 
         Company company = companyRepository.findByUsername(username).orElse(null);
-System.out.println(company.getEmail());
         j.setPostedBy(company);
+        List cities=getCities();
+        List<String> cities2 = new ArrayList<>(cities.size());
+        for (Object object : cities) {
+            cities2.add(Objects.toString(object, null));
+        }
+        for(String inName:cities2){
+            if(inName!=null)
+                if(inName.contains(j.getLocation())){
+                    jobRepository.save(j);
+                }else {
+                    System.out.println("Citie not found");
+                    return null;
+                    }
+        }
 
-        jobRepository.save(j);
+
         return j;
     }
 
@@ -64,6 +88,18 @@ System.out.println(company.getEmail());
 
     @Override
     public Job retrieveJob(Long id) {
+        Job job= jobRepository.findAllById(id);
         return null;
     }
+
+
+
+    public List<Object> getCities() throws NoSuchFieldException {
+        String url="https://geo.api.gouv.fr/departements/94/communes?fields=nom";
+        RestTemplate restTemplate= new RestTemplate();
+        Object cities = restTemplate.getForObject(url,Object.class);
+
+        return Arrays.asList(cities);
+    }
+
 }
