@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import BlogSidebar from '../BlogSidebar'
+
 import VideoModal from '../../components/ModalVideo'
 import './style.css'
 import blog1 from '../../images/blog/img-5.jpg'
