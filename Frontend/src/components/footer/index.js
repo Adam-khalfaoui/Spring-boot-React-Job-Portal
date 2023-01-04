@@ -23,9 +23,9 @@ const Footer = (props) =>{
                     <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
                         <div className="widget about-widget">
                             <div className="footer-logo widget-title">
-                                <Link onClick={ClickHandler} to="index.html"><img src={Logo} alt="logo"/>Khai<span>rah.</span></Link>
+
                             </div>
-                            <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>
+                            <p>Technology has changed the way job seekers search for jobs and employers . </p>
                             <ul>
                                 <li><Link onClick={ClickHandler} to="/"><i className="ti-facebook"></i></Link></li>
                                 <li><Link onClick={ClickHandler} to="/"><i className="ti-twitter-alt"></i></Link></li>
@@ -40,11 +40,9 @@ const Footer = (props) =>{
                                 <h3>Useful Links</h3>
                             </div>
                             <ul>
-                                <li><Link onClick={ClickHandler} to="about/">About Us</Link></li>
-                                <li><Link onClick={ClickHandler} to="causes/">Our Causes</Link></li>
-                                <li><Link onClick={ClickHandler} to="volunteer/">Our Volunteer</Link></li>
+
                                 <li><Link onClick={ClickHandler} to="contact/">Contact Us</Link></li>
-                                <li><Link onClick={ClickHandler} to="event/">Our Event</Link></li>
+
                             </ul>
                         </div>
                     </div>
@@ -53,40 +51,24 @@ const Footer = (props) =>{
                             <div className="widget-title">
                                 <h3>Contact </h3>
                             </div>
-                            <p>online store with lots of cool and exclusive tp-features</p>
+                            <p>Job Portal Platform</p>
                             <div className="contact-ft">
                                 <ul>
-                                    <li><i className="fi flaticon-pin"></i>28 Street, New York City, USA</li>
+                                    <li><i className="fi flaticon-pin"></i>Papeete</li>
                                     <li><i className="fi flaticon-call"></i>+000123456789</li>
-                                    <li><i className="fi flaticon-envelope"></i>khairah@gmail.com</li>
+                                    <li><i className="fi flaticon-envelope"></i>jobs.find@jobi.com</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div className="widget instagram">
-                            <div className="widget-title">
-                                <h3>Instagram</h3>
-                            </div>
-                            <ul className="d-flex">
-                                <li><Link onClick={ClickHandler} to="/"><img src={n1} alt=""/></Link></li>
-                                <li><Link onClick={ClickHandler} to="/"><img src={n2} alt=""/></Link></li>
-                                <li><Link onClick={ClickHandler} to="/"><img src={n3} alt=""/></Link></li>
-                                <li><Link onClick={ClickHandler} to="/"><img src={n4} alt=""/></Link></li>
-                                <li><Link onClick={ClickHandler} to="/"><img src={n5} alt=""/></Link></li>
-                                <li><Link onClick={ClickHandler} to="/"><img src={n6} alt=""/></Link></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
         <div className="tp-lower-footer">
             <div className="container">
                 <div className="row">
-                    <div className="col col-xs-12">
-                        <p className="copyright">&copy; 2021 Khairah. All rights reserved</p>
-                    </div>
+
                 </div>
             </div>
         </div>

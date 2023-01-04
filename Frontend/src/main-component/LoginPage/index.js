@@ -46,7 +46,7 @@ const LoginPage = (props) => {
 
             if (email.match(userRegex)) {
                 toast.success('You successfully Login on Khairah !');
-                props.history.push('/blog');
+                props.history.push('/jobs');
             }
         } else {
             validator.showMessages();

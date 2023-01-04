@@ -2,15 +2,16 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
-import DonatePage from '../DonatePage'
+import AddJobPage from '../AddJobPage'
 
-import BlogPage from '../BlogPage' 
+import JobsPage from '../JobsPage'
 
 import BlogDetails from '../BlogDetails' 
 
 import ContactPage from '../ContactPage' 
 import LoginPage from '../LoginPage' 
-import SignUpPage from '../SignUpPage' 
+import SignUpPage from '../SignUpPage'
+import Jobs from "../../components/Jobs";
 
       
 
@@ -23,9 +24,9 @@ const AllRoute = () => {
             <Route exact path='/' component={LoginPage}/>
 
 
-            <Route path='/donate' component={DonatePage}/>
+            <Route path='/AddJob' component={AddJobPage}/>
 
-            <Route path='/blog' component={BlogPage}/> 
+            <Route path='/Jobs' component={JobsPage}/>
 
 
             <Route path='/blog-details' component={BlogDetails}/>
