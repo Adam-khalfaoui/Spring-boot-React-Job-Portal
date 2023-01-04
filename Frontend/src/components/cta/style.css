@@ -1,0 +1,101 @@
+/*=======================================
+#0.9 cta-area
+=========================================*/
+
+.cta-area{
+    background: url(../../images/cta.jpg) no-repeat right center;
+    padding: 90px 0;
+  }
+  .cta-area .row{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+  }
+  .cta-left h2 {
+      font-size: 36px;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      padding-right: 30px;
+      margin: 0;
+      line-height: 45px;
+      margin-bottom: 10px;
+  }
+  
+  .cta-wrap{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .cta-call span{
+    font-size: 34px;
+    color: #fff;
+  }
+  .cta-call h3 {
+      font-size: 40px;
+      color: #ffc039;
+      margin-top: 0;
+  }
+  .cta-call:last-child h3{
+    font-size: 40px;
+    color: #03b664;
+  }
+  
+  @media(max-width: 1200px){
+    .cta-call h3 {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+    .cta-call:last-child h3 {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+    .cta-left h2 {
+        font-size: 30px;
+    }
+    .cta-call span {
+      font-size: 23px;
+      color: #fff;
+  }
+  }
+  @media(max-width: 991px){
+    .cta-area .row{
+      display: unset;
+    }
+    .cta-wrap {
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+  }
+  .cta-call{
+    padding: 0 20px;
+  }
+
+  
+  .cta-area {
+      background-size: cover;
+  
+  }
+  .cta-left h2 {
+      padding-right: 0;
+  }
+  }
+  
+  @media(max-width: 767px){
+    .cta-area {
+      padding: 40px 0;
+    }
+  .cta-left h2 {
+      font-size: 26px;
+      padding-right: 0;
+  }
+  }

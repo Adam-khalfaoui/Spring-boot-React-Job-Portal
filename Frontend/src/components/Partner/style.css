@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+#1.4  partners-section
+--------------------------------------------------------------*/
+.partners-section{
+  background: url("../../images/partners/bg.png") center center/cover no-repeat local;
+  position: relative;
+  padding-bottom: 90px;
+}
+
+.partners-section:before{
+  background: -webkit-linear-gradient(left,#18b760,#e9bf3d);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: .94;
+}
+
+.partners-section .grid{
+  text-align: center;
+}
+
+.partners-section .grid img{
+  width: auto;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+@media(max-width: 1200px){
+  .partners-section {
+      padding: 100px 0 80px;
+  }
+}
+@media(max-width: 991px){
+  .partners-section {
+    padding: 80px 0 70px;
+}
+}

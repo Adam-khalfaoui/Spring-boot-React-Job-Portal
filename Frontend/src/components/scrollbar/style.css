@@ -1,0 +1,31 @@
+ul.smothscroll {
+    position: fixed;
+    bottom: 25px;
+    right:30px;
+    list-style: none;
+    z-index: 99;
+}
+ul.smothscroll a {
+    background: -webkit-linear-gradient(left,#18b760,#e9bf3d 50%,#18b760);
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-size: 200%,1px;
+    background-position: 0;
+}
+ul.smothscroll a:hover {
+    background-position: 100%!important;
+    color: #fff;
+}
+
+@media(max-width:767px){
+    ul.smothscroll a {
+        width: 30px;
+        height: 30px;
+        line-height: 25px;
+    }
+}

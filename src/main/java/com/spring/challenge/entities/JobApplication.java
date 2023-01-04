@@ -32,7 +32,7 @@ public class JobApplication  {
     private String name;
     private String lastname;
 
-    private String cv;
+    private String cv   ;
 
 
 

@@ -1,0 +1,217 @@
+/*--------------------------------------------------------------
+#1.2  testimonials-section
+--------------------------------------------------------------*/
+.testimonials-section {
+  background: #061738;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.testimonials-section.section-padding{
+  padding-top: 80px;
+}
+
+.testi-shape{
+position: absolute;
+top: 0;
+height: 50%;
+left: 0;
+width: 100%;
+z-index: -1;
+}
+.testi-shape2 {
+  position: absolute;
+  z-index:1;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.testimonials-section:before {
+  position: absolute;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  content: "";
+  background: #061738;
+  bottom: 0;
+  border-top: 3px solid #0b1c3c;
+  z-index: 1;
+}
+
+.testimonials-section .testimonial-thumb-active, .testimonials-section-s3 .testimonial-thumb-active {
+width:600px;
+text-align: center;
+margin: auto;
+position: relative;
+}
+
+@media (max-width: 767px) {
+.testimonials-section .testimonial-thumb-active, .testimonials-section-s3 .testimonial-thumb-active {
+  width: 300PX;
+}
+
+.testi-shape2 {
+  bottom: 10%;
+}
+}
+
+.testimonials-section .testimonial-thumb-active img{
+-webkit-transform: scale(0.8);
+-ms-transform: scale(0.8);
+transform: scale(0.8);
+margin: auto;
+-webkit-transition: 0.2s;
+-o-transition: 0.2s;
+transition: 0.2s;
+opacity: 1;
+margin-bottom: -35px;
+}
+
+.testimonials-section .testimonial-thumb-active .slick-center{
+border: 0;
+outline: 0;
+}
+
+.testimonials-section .testimonial-thumb-active .slick-center img{
+-webkit-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1);
+opacity: 1;
+}
+
+.testimonials-section .testimonial-content-active{
+max-width: 755px;
+margin: 15px auto 0;
+position: relative;
+z-index: 9;
+}
+
+.testimonials-section .grid > p{
+font-size: 18px;
+color: #fff;
+}
+
+@media (max-width: 767px) {
+.testimonials-section .grid > p{
+  font-size: 17px;
+  font-size: 1.13333rem;
+}
+}
+
+.testimonials-section .grid .info h5{
+font-size: 16px;
+font-size: 1.06667rem;
+margin: 2em 0 0.3em;
+}
+
+.testimonials-section .grid .info p{
+font-size: 13px;
+font-size: 0.86667rem;
+margin: 0;
+color: #03b664;
+}
+
+.testimonials-section .testimonial-thumb-active button i{
+font-size: 18px;
+color: #fff;
+left: 0;
+}
+
+.testimonials-section .testimonial-thumb-active .slick-next i{
+left: auto;
+right: 0;
+}
+
+.test-img{
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+.test-img:before{
+  position: absolute;
+  left: 50%;
+  bottom: -90px;
+  content: "";
+  width: 56%;
+  height: 100%;
+  background: -webkit-linear-gradient(left,#e9bf3d,#18b760);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  opacity: 1;
+}
+
+.testimonials-section .slick-prev, .testimonials-section .slick-next {
+  background-color: #ffc039;
+  width: 55px;
+  height: 55px;
+  z-index: 10;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: "fontAwesome";
+  content: "\f062";
+}
+.testimonials-section .slick-prev:hover, .testimonials-section .slick-next:hover {
+  background-color: #2db85d;
+}
+
+.testimonials-section .slick-prev:before, .testimonials-section .slick-next:before{
+display: none;
+}
+
+.testimonial-content-active .grid ul {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.testimonial-content-active .grid ul li{
+margin-right: 5px;
+color: #ffc039;
+font-size: 20px;
+}
+.testimonial-content-active .grid ul li span{
+color: #5d5036;
+}
+.testimonial-content-active .grid .info h5{
+color: #ffc039;
+font-size: 30px;
+margin-top: 20px;
+}
+
+@media(max-width: 767px){
+.test-img:before {
+  width: 100%;
+}
+
+.testimonials-section .grid > p {
+  font-size: 18px;
+}
+.section-padding {
+  padding: 60px 0;
+}
+.testimonials-section {
+  padding: 30px 0 60px;
+}
+.about-section{
+padding-bottom: 20px;
+}
+.testimonials-section.section-padding{
+  padding-top: 60px;
+}
+}
+@media(max-width: 570px){
+.testi-shape2 {
+  bottom: 25%;
+}
+}
+@media(max-width: 450px){
+.testi-shape2 {
+  bottom: 12%;
+}
+}

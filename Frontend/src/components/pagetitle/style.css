@@ -1,0 +1,138 @@
+/******************************
+	#page title
+******************************/
+.page-title {
+  background: url("../../images/page-title.jpg") center center/cover no-repeat local;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  position: relative;
+  word-break: break-all;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+.page-title:before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(6,25,56,.8);
+}
+@media (max-width: 991px) {
+  .page-title {
+    height: 300px;
+  }
+}
+
+.page-title .page-title-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: left;
+}
+
+.page-title .page-title-wrapper {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.page-title h2,
+.page-title ol {
+  color: #fff;
+}
+
+.page-title h2 {
+  font-size: 58px;
+  font-size: 3.625rem;
+  font-weight: bold;
+  margin: 0 0 0.5em;
+}
+
+@media (max-width: 991px) {
+  .page-title h2 {
+    font-size: 48px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-title h2 {
+    font-size: 35px;
+    font-size: 2.1875rem;
+  }
+}
+
+.page-title .breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .page-title .breadcrumb {
+    text-align: center;
+  }
+}
+
+.page-title .breadcrumb li {
+  font-size: 18px;
+  color: #fff;
+  margin-right: 5px;
+  position: relative;
+  font-family: 'Roboto', sans-serif
+}
+
+@media (max-width: 767px) {
+  .page-title .breadcrumb li {
+    font-size: 18px;
+  }
+
+  .page-title .page-title-wrapper {
+      text-align: center;
+      margin-bottom: 10px;
+  }
+}
+
+.page-title .breadcrumb li a {
+  color: #fff;
+}
+
+.page-title .breadcrumb li a:hover {
+  color: #2db85d;
+}
+
+.page-title .breadcrumb > li + li {
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.page-title .breadcrumb > li + li:before {
+  font-family: themify;
+  content: "\e649";
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 0;
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  border-radius: 50%;
+}
