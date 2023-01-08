@@ -131,7 +131,7 @@ Note:Use your bearer Token from the login request.
 Note:Use your bearer Token from the login request.
 ```http
    POST http://localhost:8089/SpringMVC/job/applyToJob/1
-
+```
 ```http
 {
     "name": "Adam",
