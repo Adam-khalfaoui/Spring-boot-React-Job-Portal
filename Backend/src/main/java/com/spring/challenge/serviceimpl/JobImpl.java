@@ -119,7 +119,7 @@ public class JobImpl implements JobI {
 
 
     public List<Object> getCities() throws NoSuchFieldException {
-        String url="https://geo.api.gouv.fr/departements/94/communes?fields=nom";
+        String url="https://geo.api.gouv.fr/departements/94/communes?fields=nom"; // change department number here
         RestTemplate restTemplate= new RestTemplate();
         Object cities = restTemplate.getForObject(url,Object.class);
 
