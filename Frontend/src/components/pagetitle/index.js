@@ -4,6 +4,7 @@ import './style.css'
 
 const PageTitle = (props) => {
     return(
+
         <section className="page-title">
             <div className="page-title-container">
                 <div className="page-title-wrapper">

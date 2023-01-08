@@ -9,8 +9,8 @@ import java.util.Optional;
 public interface JobRepository extends JpaRepository<Job, Long> {
 
 
-    public void deleteById(Long id);
+    public void deleteByIdJob(Long id);
 
 
-  public  Job findAllById(Long id);
+  public  Job findAllByIdJob(Long id);
 }

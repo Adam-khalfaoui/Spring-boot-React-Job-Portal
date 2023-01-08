@@ -8,13 +8,14 @@ import {Link, withRouter} from "react-router-dom";
 import s1 from '../../images/shape.png'
 
 import './style.scss';
+import autheticationService from "../../services/authentificationService";
 
 const SignUpPage = (props) => {
     const [value, setValue] = useState({
+        username: '',
         email: '',
-        full_name: '',
         password: '',
-        confirm_password: '',
+        role: '',
     });
 
     const changeHandler = (e) => {
@@ -31,14 +32,31 @@ const SignUpPage = (props) => {
         e.preventDefault();
         if (validator.allValid()) {
             setValue({
+                username: '',
                 email: '',
-                full_name: '',
                 password: '',
-                confirm_password: '',
+                role: '',
             });
             validator.hideMessages();
-            toast.success('Registration Complete successfully!');
-            props.history.push('/login');
+            let user = {username: value.username, email: value.email, password: value.password, role: value.role};
+            console.log(user)
+
+            autheticationService.signup(user).then(res =>{
+                let x =res.data.message;
+                if (x.includes('Error') ){
+
+                    console.log('here'+ res.data.message);
+                    toast.error(res.data.message);
+
+                }
+                else {
+
+                    toast.success("registred successfully");
+                    props.history.push('/login')
+                }
+            });
+
+
         } else {
             validator.showMessages();
             toast.error('Empty field is not allowed!');
@@ -56,18 +74,18 @@ const SignUpPage = (props) => {
                             <TextField
                                 className="inputOutline"
                                 fullWidth
-                                placeholder="Full Name"
-                                value={value.full_name}
+                                placeholder="Username"
+                                value={value.username}
                                 variant="outlined"
-                                name="full_name"
-                                label="Name"
+                                name="username"
+                                label="Username"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('full name', value.full_name, 'required|alpha')}
+                            {validator.message('full name', value.username, 'required|alpha')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -95,6 +113,7 @@ const SignUpPage = (props) => {
                                 variant="outlined"
                                 name="password"
                                 label="Password"
+                                type="password"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -107,11 +126,11 @@ const SignUpPage = (props) => {
                             <TextField
                                 className="inputOutline"
                                 fullWidth
-                                placeholder="Confirm Password"
-                                value={value.password}
+                                placeholder="Role"
+                                value={value.role}
                                 variant="outlined"
-                                name="confirm_password"
-                                label="Confirm Password"
+                                name="role"
+                                label="Role"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}

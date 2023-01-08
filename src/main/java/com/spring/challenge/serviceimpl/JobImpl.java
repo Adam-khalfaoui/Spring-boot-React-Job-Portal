@@ -6,6 +6,7 @@ import com.spring.challenge.entities.User;
 import com.spring.challenge.repository.CompanyRepository;
 import com.spring.challenge.entities.Company;
 import com.spring.challenge.entities.Job;
+import com.spring.challenge.repository.JobApplicationRepository;
 import com.spring.challenge.repository.JobRepository;
 import com.spring.challenge.repository.UserRepository;
 import com.spring.challenge.service.JobI;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletException;
 import java.io.BufferedReader;
@@ -23,13 +25,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 
 public class JobImpl implements JobI {
-
+    private final Path rootLocation= Paths.get("upload-dir");
     @Autowired
     private JobRepository jobRepository;
 
@@ -38,6 +43,8 @@ public class JobImpl implements JobI {
 
     @Autowired
     private CompanyRepository companyRepository;
+    @Autowired
+    private JobApplicationRepository jobApplicationRepository;
 
     @Override
     public List<Job> retrieveAllJob() {
@@ -88,10 +95,27 @@ public class JobImpl implements JobI {
 
     @Override
     public Job retrieveJob(Long id) {
-        Job job= jobRepository.findAllById(id);
+        Job job= jobRepository.findAllByIdJob(id);
         return null;
     }
 
+    @Override
+    public void store(MultipartFile file) throws IOException {
+
+            if (file.isEmpty()) {
+               System.out.println("File is empty");
+
+        }
+        Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+    }
+
+    @Override
+    public void addView(Long id) {
+        Job job=jobRepository.findById(id).orElse(null);
+        int views= job.getViews();
+        job.setViews(views+1);
+        jobRepository.save(job);
+    }
 
 
     public List<Object> getCities() throws NoSuchFieldException {

@@ -11,11 +11,14 @@ import com.spring.challenge.serviceimpl.JobImpl;
 import org.hibernate.internal.JdbcObserverImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -47,6 +50,12 @@ public class JobController {
         return application;
     }
 
+    @PostMapping(value = "/uploadFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity handleFileUpload(@RequestParam("file") MultipartFile file,Principal principal) throws IOException {
+        jobImpml.store(file);
+        System.out.println(String.format("File name '%s' uploaded successfully.", file.getOriginalFilename()));
+        return ResponseEntity.ok().build();
+    }
     @GetMapping("/all")
     public List<Job> getJobs() {
         List<Job> listJobs = jobImpml.retrieveAllJob();
@@ -103,4 +112,14 @@ public class JobController {
         List<JobApplication> listApps = jobApplicationImpml.retrieveAllAppliaction();
         return listApps;
     }
+
+    @PostMapping ("addview/{id}")
+    @ResponseBody
+    public void addview(@PathVariable("id") Long id, @RequestBody Job j) {
+       jobImpml.addView(id);
+
+    }
+
+
+
 }

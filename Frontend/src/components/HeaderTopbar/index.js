@@ -1,8 +1,26 @@
-import React from 'react'
-import {Link}  from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {Link, Redirect} from 'react-router-dom'
 import './style.css'
 
-const HeaderTopbar = () => {
+const HeaderTopbar = (props) => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(
+        () => localStorage.getItem('token') !== null
+    );
+
+
+    useEffect(() => {
+        localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
+
+    }, [isLoggedIn]);
+
+const handleClick   =(e)=>{
+    e.preventDefault();
+    console.log('here');
+    localStorage.clear();
+    setIsLoggedIn(false);
+}
+
     return(	
         <div className="topbar">
             <div className="container">
@@ -18,8 +36,9 @@ const HeaderTopbar = () => {
                     <div className="col col-md-6 col-sm-12 col-12">
                         <div className="contact-info">
                             <ul>
-                                <li><Link to="/login">Login</Link></li>
-                                <li><Link to="/signup">Sign Up</Link></li>
+                                {isLoggedIn ?<li>Hello there!</li> : <li><Link to="/signup">Sign Up</Link></li>}
+                                {!isLoggedIn ?<li><Redirect to="/login">Login</Redirect></li > : <li onClick={handleClick}>Logout</li>}
+
 
                             </ul>
                         </div>

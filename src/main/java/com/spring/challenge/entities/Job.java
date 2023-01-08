@@ -16,7 +16,7 @@ public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long id;
+    private Long idJob;
 
     private String jobTitle;
 
@@ -24,16 +24,18 @@ public class Job {
 
     private  String location;
 
+    private  String mail;
+
     @Enumerated
     private ContarctType contarctType;
-@JsonIgnore
-    private Integer views;
+
+    private Integer views=0;
 
     @ManyToOne(targetEntity = User.class, cascade = { CascadeType.MERGE, CascadeType.REFRESH })
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "recruiter_id")
     private Company postedBy;
-@JsonIgnore
+
     private LocalDate postedDate = LocalDate.now();
 
     @JsonIgnore

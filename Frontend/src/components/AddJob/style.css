@@ -1,8 +1,8 @@
 .tp-donations-amount,
 .tp-donations-details,
 .tp-doanation-payment {
-  padding: 30px;
-  margin-bottom: 40px;
+  padding: 80px;
+  margin-bottom: -50px;
   box-shadow: 0px 1px 40px 0px rgba(40, 63, 116, 0.1);
 }
 
@@ -13,7 +13,7 @@
   font-weight: 600;
   position: relative;
   text-transform: capitalize;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
   margin-top: 0;
 }
 

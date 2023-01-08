@@ -12,34 +12,36 @@ import ContactPage from '../ContactPage'
 import LoginPage from '../LoginPage' 
 import SignUpPage from '../SignUpPage'
 import Jobs from "../../components/Jobs";
+import CompanyRoute from "./CompanyRoute";
+import SeekerRoute from "./SeekerRoute";
 
-      
 
-const AllRoute = () => { 
+
+const AllRoute = () => {
+
+
 
   return (
     <div className="App">
        <Router>
+
           <Switch>
-            <Route exact path='/' component={LoginPage}/>
+              <Route exact path='/' component={LoginPage}/>
+              <SeekerRoute path="/Jobs" component={JobsPage} />
+              <SeekerRoute path="/blog-details/:id" component={BlogDetails}/>
+              <SeekerRoute path='/contact' component={ContactPage}/>
 
-
-            <Route path='/AddJob' component={AddJobPage}/>
-
-            <Route path='/Jobs' component={JobsPage}/>
-
-
-            <Route path='/blog-details' component={BlogDetails}/>
+              <CompanyRoute path='/AddJob' component={AddJobPage}/>
 
 
 
-             <Route path='/contact' component={ContactPage}/>
+
             <Route path='/login' component={LoginPage}/>
             <Route path='/signup' component={SignUpPage}/>
 
           </Switch>
       </Router>
-      
+
     </div>
   );
 }

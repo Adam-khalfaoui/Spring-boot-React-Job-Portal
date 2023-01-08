@@ -9,9 +9,10 @@
 }
 
 .tp-blog-pg-section .tp-tp-blog-content .post {
-  margin-bottom: 40px;
+  margin-bottom: -160px;
   padding: 30px;
   box-shadow: 0px 1px 40px 0px rgba(40, 63, 116, 0.1);
+  border-radius: 50px;
 }
 
 @media (max-width: 991px) {
@@ -28,7 +29,7 @@
 
 @media (max-width: 767px) {
   .tp-blog-pg-section .tp-tp-blog-content .post {
-      margin-bottom: 60px;
+      margin-bottom: -130px;
   }
 
   .sub-btn .theme-btn {

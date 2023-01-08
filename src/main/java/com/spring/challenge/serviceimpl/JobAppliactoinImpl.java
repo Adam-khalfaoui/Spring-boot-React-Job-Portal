@@ -34,6 +34,7 @@ public class JobAppliactoinImpl implements JobApplicationI {
         System.out.println(username);
         Job job = jobRepository.getById(idJob);
         ja.setJob(job);
+        ja.setCv("/upload-dir/"+ja.getCv());
         ja.setClient(client);
 
 

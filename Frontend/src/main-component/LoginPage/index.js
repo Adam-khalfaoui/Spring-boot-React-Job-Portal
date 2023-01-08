@@ -8,14 +8,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import {Link, withRouter} from "react-router-dom";
 import s1 from '../../images/shape.png'
+import autheticationService from "../../services/authentificationService";
 
 import './style.scss';
+import axios from "axios";
 
 const LoginPage = (props) => {
     const [value, setValue] = useState({
-        email: 'user@gmail.com',
-        password: '123456',
-        remember: false,
+        email: '',
+        password: '',
+        remember: true,
     });
 
     const changeHandler = (e) => {
@@ -33,6 +35,8 @@ const LoginPage = (props) => {
 
     const submitForm = (e) => {
         e.preventDefault();
+        let user = {username: value.email, password: value.password};
+
         if (validator.allValid()) {
             setValue({
                 email: '',
@@ -41,16 +45,31 @@ const LoginPage = (props) => {
             });
             validator.hideMessages();
 
-            const userRegex = /^user+.*/gm;
-            const email = value.email;
+        let loading = true;
 
-            if (email.match(userRegex)) {
-                toast.success('You successfully Login on Khairah !');
-                props.history.push('/jobs');
+            if (loading) {
+
+                autheticationService.signin(user).then(res =>{
+
+                        toast.success('Welcome '+value.email);
+                        localStorage.setItem('token',res.data.token);
+                        localStorage.setItem('role',res.data.role);
+                        if (res.data.role === 'ROLE_COMPANY')
+                            props.history.push('/AddJob');
+                        else props.history.push('/Jobs');
+
+
+                }).catch(error => {
+                    toast.error('Bad credetials')
+                });;
+
+
             }
         } else {
             validator.showMessages();
             toast.error('Empty field is not allowed!');
+
+
         }
     };
     return (
@@ -64,18 +83,18 @@ const LoginPage = (props) => {
                             <TextField
                                 className="inputOutline"
                                 fullWidth
-                                placeholder="E-mail"
+                                placeholder="Username"
                                 value={value.email}
                                 variant="outlined"
                                 name="email"
-                                label="E-mail"
+                                label="Username"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('email', value.email, 'required|email')}
+                            {validator.message('email', value.email, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
