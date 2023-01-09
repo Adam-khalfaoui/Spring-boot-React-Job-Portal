@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
-RUN apk --no-cache add curl
-ENTRYPOINT ["java","-jar","/Backend.jar"]
-EXPOSE 8089
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

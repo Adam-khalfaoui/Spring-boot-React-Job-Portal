@@ -1,34 +1,6 @@
 version: "3.3"
 
 services:
-  mysql-db:
-    image: mysql:5.6
-    platform: linux/amd64
-    container_name: mysql-db
-    environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_DATABASE: 'newBase'
-    ports:
-      - target: 3306
-        published: 3306
-        protocol: tcp
-    networks:
-      - mysql  
-        
-    
-    
-   
-  front-end3:
-    build:
-      context: Frontend
-      dockerfile: Dockerfile
-    container_name: front-end3
-    ports:
-      - "3000:3000"
-    command: react-scripts start
-    links:
-      - springboot-restful-webservices 
-
 
   springboot-restful-webservices:
     container_name: springboot-restful-webservices
@@ -53,6 +25,31 @@ services:
       - mysql-db
     links:
       - mysql-db
+
+  mysql-db:
+    image: mysql:5.6
+    platform: linux/amd64
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'newBase'
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+    networks:
+      - mysql  
+
+  front-end3:
+    build:
+      context: Frontend
+      dockerfile: Dockerfile
+    container_name: front-end3
+    ports:
+      - "3000:3000"
+    command: react-scripts start
+    links:
+      - springboot-restful-webservices 
 networks:
    mysql:
   

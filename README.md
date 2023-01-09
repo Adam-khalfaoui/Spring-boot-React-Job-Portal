@@ -36,9 +36,19 @@ docker-compose.yml.
 
 Using Docker 
 
+
+1.First create a new jar file using maven builder:
+
+```bash
+  cd Backend
+  mvn package -DskipTests
+```
+
+2. Run docker-compose:
 ```bash
   docker-compose up
 ```
+
 Without Docker 
 
 Backend:

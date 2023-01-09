@@ -9,7 +9,7 @@
 		<version>2.7.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bezkoder</groupId>
+	<groupId>com.challlenge</groupId>
 	<artifactId>spring-boot-security-jwt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-security-jwt</name>
