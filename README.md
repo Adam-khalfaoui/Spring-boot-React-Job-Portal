@@ -155,7 +155,7 @@ Note:Use your bearer Token from the login request.
 #### Add views to Job :
 Note:Use your bearer Token from the login request.
 ```http
-   POST http://localhost:8089/SpringMVC/job/addview/&
+   POST http://localhost:8089/SpringMVC/job/addview/1
 ```
 
 
