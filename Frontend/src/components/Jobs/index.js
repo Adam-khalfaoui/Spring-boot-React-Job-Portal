@@ -17,8 +17,6 @@ function Jobs(props){
     const clickHandler = (e) => {
 
 
-        console.log('hereeee')
-        console.log(props.idJob)
         jobsService.addview(props.idJob)
 
 

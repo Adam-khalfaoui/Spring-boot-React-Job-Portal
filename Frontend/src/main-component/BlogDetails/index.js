@@ -12,11 +12,11 @@ const BlogDetails =(props) => {
     const id = props.match.params.id;
 
     const username =
-    console.log(id);
+
     jobsService.findById(id).then(res=> {
-        console.log(res)
+
     })
-   console.log('herez'+props.location.data);
+
    const data = (props.location.data)
 
 

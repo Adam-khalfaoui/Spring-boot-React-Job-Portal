@@ -39,13 +39,13 @@ const SignUpPage = (props) => {
             });
             validator.hideMessages();
             let user = {username: value.username, email: value.email, password: value.password, role: value.role};
-            console.log(user)
+
 
             autheticationService.signup(user).then(res =>{
                 let x =res.data.message;
                 if (x.includes('Error') ){
 
-                    console.log('here'+ res.data.message);
+
                     toast.error(res.data.message);
 
                 }
