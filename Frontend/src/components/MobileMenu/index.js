@@ -21,7 +21,7 @@ const menus = [
         id: 3,
         title: 'Contact',
         link: '/contact',
-    },
+    }
     
     
 ]
