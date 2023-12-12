@@ -1,4 +1,4 @@
-
+*
 # JOBIi
 
 JOBI is the next generation of recruitment web app, built with the latest technologies (Spring boot/React js) and designed to streamline recruitment processes from sourcing to onboarding and beyond. Hire faster and funnel your recruitment channels into an intuitive platform. 
